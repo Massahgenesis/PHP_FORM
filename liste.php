@@ -21,19 +21,7 @@
 
 <?php
 
-$host = "localhost";
-$dbname = "formulaire_db";
-$username = "root";
-$password = "";
-        
-$conn = mysqli_connect( $host,
-                        $username,
-                        $password,
-                        $dbname);
-        
-if (mysqli_connect_errno()) {
-    die("Connection error: " . mysqli_connect_error());
-}   
+require_once('connect.php');
 
 // afficher les données de la
 
@@ -62,9 +50,7 @@ while ($row = $result->fetch_assoc()) {
     <td>".$row["priority"]."</td>
     <td> ".$row["type"]." </td>
     <td>".$row["modifier"]."
-    <a href=".$row["id"].">
-    Modifier
-    </a>
+    <a href=modification.php?upd=".$row['id']."> modifier</a>
     </td>
     <td>".$row["supprimer"]."
     <a href=delete.php?sup=".$row["id"].">Supprimer</a>
